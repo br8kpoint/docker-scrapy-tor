@@ -14,7 +14,7 @@ RUN curl -LO https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
 RUN rm -rf get-pip.py
 WORKDIR /opt
-RUN pip install Scrapy==1.0.3
+RUN pip install Scrapy==1.4.0
 
 ADD entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod 700 /usr/bin/entrypoint.sh

@@ -1,21 +1,21 @@
-[Scrapy](http://scrapy.org/) 1.0.3 environment with [Tor](https://www.torproject.org/) for anonymous ip routing and [Privoxy](http://www.privoxy.org/) for http proxy.
+[Scrapy](http://scrapy.org/) 1.4.0 environment with [Tor](https://www.torproject.org/) for anonymous ip routing and [Privoxy](http://www.privoxy.org/) for http proxy.
 
 Run:
 
 ```
-docker run -it mmast/scrapy-tor
+docker run -it br8kpoint/scrapy-tor
 ```
 
 Run a spider:
 ```
 cd /my/scrapy/project
-docker run -it -v $(pwd):/opt mmast/scrapy-tor crawl my_spider
+docker run -it -v $(pwd):/opt br8kpoint/scrapy-tor crawl my_spider
 ```
 
 Run scraping console:
 ```
 cd /my/scrapy/project
-docker run -it -v $(pwd):/opt mmast/scrapy-tor shell "http://web.to.scrape"
+docker run -it -v $(pwd):/opt br8kpoint/scrapy-tor shell "http://web.to.scrape"
 ```
 
 No further configuration is needed for the Scrapy settings, since the proxy middleware (`scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware`) will be activated by default using the HTTP proxy address (http://127.0.0.1:8118) set up in the environment.
@@ -23,7 +23,7 @@ No further configuration is needed for the Scrapy settings, since the proxy midd
 Extending with more requirements:
 
 ```
-FROM mmast/scrapy-tor
+FROM br8kpoint/scrapy-tor
 ADD requirements.txt ./
 RUN pip install -r requirements.txt
 ```
@@ -31,7 +31,7 @@ RUN pip install -r requirements.txt
 Extending with MongoDB:
 
 ```
-FROM mmast/scrapy-tor
+FROM br8kpoint/scrapy-tor
 RUN pip install pymongo==3.2
 ```
 
