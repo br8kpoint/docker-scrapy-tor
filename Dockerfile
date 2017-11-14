@@ -16,6 +16,7 @@ RUN rm -rf get-pip.py
 WORKDIR /opt
 RUN pip install Scrapy==1.4.0
 RUN pip install Twisted==16.4.1
+RUN pip install stem
 
 ADD entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod 700 /usr/bin/entrypoint.sh
